@@ -6,7 +6,8 @@ while True:
     # show menu
     print("\n1. Add Task")
     print("2. View Tasks")
-    print("3. Exit\n")
+    print("3. Delete Task")
+    print("4. Exit\n")
 
     #user make choice from menu by entering the number
     choice = int(input("Enter your choice by entering the number: "))
@@ -51,9 +52,21 @@ while True:
             for task in tasks:
                 print(i,".",task)
                 i += 1'''
-            
-    #if user choose option 3    
+    #if user choose option 3
     elif choice == 3:
+        delete_task = int(input("Enter the task number to delete it: "))
+        tasks.pop(delete_task - 1)
+
+        #overwriting the file with updated task
+        with open("tasks.txt","w") as f:
+            for task in tasks:
+                f.write(task + "\n")
+        
+        print("Task deleted successfully!")
+        print("---------------------------------------------")
+
+    #if user choose option 4    
+    elif choice == 4:
         print("\nGoodbye!")
         print("---------------------------------------------")
         break
