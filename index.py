@@ -4,9 +4,9 @@
 while True:
 
     # show menu
-    print("1. Add Task")
+    print("\n1. Add Task")
     print("2. View Tasks")
-    print("3. Exit")
+    print("3. Exit\n")
 
     #user make choice from menu by entering the number
     choice = int(input("Enter your choice by entering the number: "))
@@ -15,19 +15,22 @@ while True:
 
     #if user choose option 1
     if choice == 1:
-        task_name = input("Enter the task: ")
+        task_name = input("\nEnter the task: ")
         tasks.append(task_name)
         print("Task added successfully!")
+        print("---------------------------------------------")
         #print(tasks)
 
     #if user choose option 2
     elif choice == 2:
         if len(tasks) == 0:
-            print("No tasks yet!")
+            print("\nNo tasks yet!")
+            print("---------------------------------------------")
         else:
             for i in range(len(tasks)):
                 #print(i+1,".",tasks[i])
-                print(f"{i+1}. {tasks[i]}")
+                print(f"\n{i+1}. {tasks[i]}")
+            print("---------------------------------------------")
 
             '''i = 1
             for task in tasks:
@@ -36,6 +39,12 @@ while True:
             
     #if user choose option 3    
     elif choice == 3:
-        print("Goodbye!")
+        print("\nGoodbye!")
+        print("---------------------------------------------")
         break
+    
+    #handling invalid choice
+    else:
+        print("\nInvalid Choice")
+        print("---------------------------------------------")
         
