@@ -12,11 +12,24 @@ while True:
     choice = int(input("Enter your choice by entering the number: "))
 
     tasks = [] #add tasks entered by user
-
+    
+    #reading file and removing extra space
+    try:
+        with open("tasks.txt","r") as f:
+            for line in f:
+                tasks.append(line.strip())
+    #fixing using try except, if file doesn't exist
+    except:
+        pass
     #if user choose option 1
     if choice == 1:
         task_name = input("\nEnter the task: ")
         tasks.append(task_name)
+
+        #adding task in file (task.txt)
+        with open("tasks.txt","a") as f:
+            f.write(task_name + "\n")
+
         print("Task added successfully!")
         print("---------------------------------------------")
         #print(tasks)
@@ -27,9 +40,11 @@ while True:
             print("\nNo tasks yet!")
             print("---------------------------------------------")
         else:
+            
+            print()
             for i in range(len(tasks)):
                 #print(i+1,".",tasks[i])
-                print(f"\n{i+1}. {tasks[i]}")
+                print(f"{i+1}. {tasks[i]}")
             print("---------------------------------------------")
 
             '''i = 1
